@@ -25,9 +25,6 @@ def convertBinToOct(num):
     return ' | '.join(explain)
 
 
-# convertBinToOct("10010101")
-
-
 def convertBinToDec(num):
     # print the steps to convert bin to dec
     # The decimal number is equal to the sum of binary digits (dn) times their power of 2 (2n):
@@ -40,9 +37,6 @@ def convertBinToDec(num):
         res += int(num[i]) * 2**(length-i-1)
 
     return (' + '.join(explain))
-
-
-# convertBinToDec("1111")
 
 
 def convertBinToHex(num):
@@ -74,12 +68,7 @@ def convertBinToHex(num):
         res += dict[i]
         explain.append(f'{i} = {dict[i]}')
 
-    # print(' | '.join(explain))
-    # print(res)
     return ' | '.join(explain)
-
-
-# convertBinToHex("11111010101")
 
 
 def convertOctToBin(num):
@@ -93,8 +82,6 @@ def convertOctToBin(num):
     for i in num:
         res += dict[i]
         explain.append(f'{i} = {dict[i]}')
-    # print(' | '.join(explain))
-    # print(res)
     return ' | '.join(explain)
 
 
@@ -108,8 +95,6 @@ def convertOctToDec(num):
     for i in range(length):
         explain.append(f'{num[i]}*8^{length-i-1}')
         res += int(num[i]) * 8**(length-i-1)
-    # print(' + '.join(explain), end=' = ')
-    # return res
     return ' + '.join(explain)
 
 
@@ -123,14 +108,10 @@ def convertOctToHex(num):
 
 
 def convertDecToBin(num):
-    # print the steps to convert dec to bin
-    # Divide the number by 2 until you get a quotient of 0.
-    # The remainders are the binary digits in reverse order.
     num = int(num)
     res = ''
     explain = []
 
-    # print("Division by 2      Quotient      Remainder(Digit)    Bit #")
     bit = 0
     while num != 0:
         res += str(num % 2)
@@ -138,8 +119,6 @@ def convertDecToBin(num):
             f'{num:8} / 2       {(num//2):8}        {(num % 2):6}            {bit:3}')
         num = num // 2
         bit += 1
-    # print('\n'.join(explain))
-    # print(res[::-1])
     return "Division by 2       Quotient   Remainder  Bit #\n" + '\n'.join(explain), res[::-1]
 
 
@@ -151,7 +130,6 @@ def convertDecToOct(num):
     res = ''
     explain = []
 
-    # print("Division by 8      Quotient      Remainder(Digit)    Bit #")
     bit = 0
     while num != 0:
         res += str(num % 8)
@@ -159,22 +137,14 @@ def convertDecToOct(num):
             f'{num:8} / 8       {(num//8):8}        {(num % 8):6}            {bit:3}')
         num = num // 8
         bit += 1
-    # print('\n'.join(explain))
-    # print(res[::-1])
     return "Division by 8       Quotient   Remainder  Bit #\n" + '\n'.join(explain)
-
-# convertDecToOct(1025)
 
 
 def convertDecToHex(num):
-    # print the steps to convert dec to hex
-    # Divide the number by 16 until you get a quotient of 0.
-    # The remainders are the hexadecimal digits in reverse order.
     num = int(num)
     res = ''
     explain = []
     dict = {10: 'A', 11: 'B', 12: 'C', 13: 'D', 14: 'E', 15: 'F'}
-    # print("Division  by  16      Quotient      Remainder(Digit)    Bit #")
     bit = 0
     while num != 0:
         if num % 16 >= 10:
@@ -185,11 +155,8 @@ def convertDecToHex(num):
             f'{num:8} / 16       {(num//16):8}        {(num % 16):6}            {bit:3}')
         num = num // 16
         bit += 1
-    # print('\n'.join(explain))
-    # print(res[::-1])
     return "Division by 16       Quotient   Remainder  Bit #\n" + '\n'.join(explain)
 
-# convertDecToHex("14785")
 
 
 def convertHexToBin(num):
@@ -205,20 +172,12 @@ def convertHexToBin(num):
     for i in num:
         temp += dict[i]
         explain.append(f'{i} = {dict[i]}')
-    # print(' | '.join(explain))
     res = []
-    # print result in group of 4 bits
     for i in range(0, len(temp), 4):
         res.append(temp[i:i+4])
 
-    # print(' '.join(res))
-    # return res
     return ' | '.join(explain)
 
-
-# a, b = convertHexToBin("1A")
-# print(a)
-# print(b)
 
 
 def convertHexToOct(num):
@@ -230,11 +189,6 @@ def convertHexToOct(num):
     explain2, res = convertBinToOct(res)
     return explain, explain2
 
-
-# a, b, c = convertHexToOct("F")
-# print(a)
-# print(b)
-# print(c)
 
 
 def convertHexToDec(num):
@@ -252,9 +206,5 @@ def convertHexToDec(num):
         else:
             res += int(num[i]) * 16**(length-i-1)
             explain.append(f'{num[i]}*16^{length-i-1}')
-    # print(' + '.join(explain), end=' = ')
-    # print(res)
+
     return ' + '.join(explain)
-
-
-# convertHexToBin("F1A2F1")

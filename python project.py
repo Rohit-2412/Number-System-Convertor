@@ -2,9 +2,8 @@ from tkinter import *
 from tkinter import messagebox
 from conversion import *
 
-# Create a python GUI project to convert a number to another number system
 
-
+"""python GUI project to convert a number to another number system"""
 class NumberSystem:
     def __init__(self, root):
         self.root = root
@@ -515,6 +514,7 @@ class NumberSystem:
         self.root.destroy()
 
 
+# main fuction
 if __name__ == '__main__':
     root = Tk()
     obj = NumberSystem(root)
